@@ -30,6 +30,10 @@ def copy_files():
                     # Copy the file to the destination directory
                     shutil.copy2(source_file, destination_file)
                     logging.info(f"Copied: {file_name}")
+
+                    # Delete the file from the source directory
+                    os.remove(source_file)
+                    logging.info(f"Deleted: {file_name}")
         except Exception as e:
             logging.error(f"Error occurred: {e}")
         
